@@ -1,4 +1,3 @@
-import Head from "next/head";
 import { useState } from "react";
 import styles from "./index.module.css";
 
@@ -8,6 +7,7 @@ export default function Home() {
 
   async function onSubmit(event) {
     event.preventDefault();
+    
     const response = await fetch("/api/generate", {
       method: "POST",
       headers: {
@@ -22,10 +22,7 @@ export default function Home() {
 
   return (
     <div>
-      <Head>
-        <title>OpenAI Quickstart</title>
-        <link rel="icon" href="/dog.png" />
-      </Head>
+      <title>Chat with AI!</title>
 
       <main className={styles.main}>
         <img src="/dog.png" className={styles.icon} />
