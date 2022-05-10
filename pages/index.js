@@ -1,65 +1,65 @@
-import { useState } from "react";
 import styles from "./index.module.css";
 
 export default function Home() {
-  const [animalInput, setAnimalInput] = useState("");
 
   async function onSubmit(event) {
     event.preventDefault();
+
+    const userPrompt = document.getElementById("promptField").value;
     
     const response = await fetch("/api/generate", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ animal: animalInput }),
+      body: JSON.stringify({ prompttext: userPrompt }),
     });
     const data = await response.json();
-    setAnimalInput("");
 
-    const tasks = document.querySelector('#tasks')
+    displayNewResponse(userPrompt, data.result)
+  }
 
-    const tableRow = document.createElement('tr')
-    const taskLabel1 = document.createElement('td')
-    const taskText1 = document.createTextNode("prompt1")
-    const taskLabel2 = document.createElement('td')
-    const taskText2 = document.createTextNode(data.result)
+  function displayNewResponse(newPrompt, newResponse) {
+    const records = document.querySelector('#recordedPromptsAndResponses')
 
-    taskLabel1.appendChild(taskText1)
-    tableRow.appendChild(taskLabel1)
-    taskLabel2.appendChild(taskText2)
-    tableRow.appendChild(taskLabel2)
+    const newRow = document.createElement('tr')
+    const promptLabel = document.createElement('td')
+    const promptText = document.createTextNode(newPrompt)
+    const responseLabel = document.createElement('td')
+    const responseText = document.createTextNode(newResponse)
 
-    tasks.insertBefore(tableRow, tasks.children[1]);
-    //tasks.appendChild(tableRow)
+    promptLabel.appendChild(promptText)
+    newRow.appendChild(promptLabel)
+    responseLabel.appendChild(responseText)
+    newRow.appendChild(responseLabel)
+
+    records.insertBefore(newRow, records.children[1]);
   }
 
   return (
     <div>
-      <title>Chat with AI!</title>
+      <title>Chat with AI</title>
 
-      <body className={styles.body}>
+      <main className={styles.main}>
 
-        <h3>Chat with AI</h3>
+        <h3>Chat with AI!</h3>
         <p>Please enter a prompt here:</p>
 
         <form onSubmit={onSubmit}>
           <textarea
             type="text"
-            name="animal"
+            id="promptField"
             placeholder="Write a poem about a dog wearing skis"
-            value={animalInput}
-            onChange={(e) => setAnimalInput(e.target.value)}
           />
           <input type="submit" value="Submit Prompt" />
         </form>
-
+        
         <table>
-          <tbody id='tasks'>
+          <tbody id='recordedPromptsAndResponses'>
           <tr><th>Prompt</th><th>Response</th></tr>
           </tbody>
         </table>
-      </body>
+      </main>
     </div>
   );
 }
