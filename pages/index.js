@@ -3,7 +3,6 @@ import styles from "./index.module.css";
 
 export default function Home() {
   const [animalInput, setAnimalInput] = useState("");
-  const [result, setResult] = useState();
 
   async function onSubmit(event) {
     event.preventDefault();
@@ -16,7 +15,6 @@ export default function Home() {
       body: JSON.stringify({ animal: animalInput }),
     });
     const data = await response.json();
-    setResult(data.result);
     setAnimalInput("");
 
     const tasks = document.querySelector('#tasks')
@@ -40,35 +38,28 @@ export default function Home() {
     <div>
       <title>Chat with AI!</title>
 
-      <main className={styles.main}>
-        <img src="/dog.png" className={styles.icon} />
-        <h3>Name my pet</h3>
+      <body className={styles.body}>
+
+        <h3>Chat with AI</h3>
+        <p>Please enter a prompt here:</p>
+
         <form onSubmit={onSubmit}>
-          <input
+          <textarea
             type="text"
             name="animal"
-            placeholder="Enter an animal"
+            placeholder="Write a poem about a dog wearing skis"
             value={animalInput}
             onChange={(e) => setAnimalInput(e.target.value)}
           />
-          <input type="submit" value="Generate names" />
+          <input type="submit" value="Submit Prompt" />
         </form>
-        <div className={styles.result}>{result}</div>
+
         <table>
           <tbody id='tasks'>
-          <tr>
-            <th>
-              Prompt
-            </th>
-            <th>
-              Response
-            </th>
-          
-          </tr>
-
+          <tr><th>Prompt</th><th>Response</th></tr>
           </tbody>
         </table>
-      </main>
+      </body>
     </div>
   );
 }
