@@ -18,6 +18,22 @@ export default function Home() {
     const data = await response.json();
     setResult(data.result);
     setAnimalInput("");
+
+    const tasks = document.querySelector('#tasks')
+
+    const tableRow = document.createElement('tr')
+    const taskLabel1 = document.createElement('td')
+    const taskText1 = document.createTextNode("prompt1")
+    const taskLabel2 = document.createElement('td')
+    const taskText2 = document.createTextNode(data.result)
+
+    taskLabel1.appendChild(taskText1)
+    tableRow.appendChild(taskLabel1)
+    taskLabel2.appendChild(taskText2)
+    tableRow.appendChild(taskLabel2)
+
+    tasks.insertBefore(tableRow, tasks.children[1]);
+    //tasks.appendChild(tableRow)
   }
 
   return (
@@ -38,6 +54,20 @@ export default function Home() {
           <input type="submit" value="Generate names" />
         </form>
         <div className={styles.result}>{result}</div>
+        <table>
+          <tbody id='tasks'>
+          <tr>
+            <th>
+              Prompt
+            </th>
+            <th>
+              Response
+            </th>
+          
+          </tr>
+
+          </tbody>
+        </table>
       </main>
     </div>
   );

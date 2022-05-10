@@ -6,7 +6,7 @@ export default async function (req, res) {
   const completion = await openai.createCompletion("text-davinci-002", {
     prompt: generatePrompt(req.body.animal),
     temperature: 0.5,
-    max_tokens: 16,
+    max_tokens: 4,
     top_p: 1.0,
     frequency_penalty: 0.0,
     presence_penalty: 0.0,
