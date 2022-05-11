@@ -6,38 +6,19 @@ This is an front-end project sending plain text prompts to the OpenAI API and sh
 
 https://front-end-project-openai.herokuapp.com/
 
-## Guide to use the project
+## Guide to use the project locally
 
-1. Download the project
+1. Obtain an OpenAI key from https://beta.openai.com/account/api-keys
 
-1. If you don’t have Node.js installed, [install it from here](https://nodejs.org/en/)
+2. Download the project to your local machine.
 
-2. Clone this repository
+3. Go to the project root directory in command line.
 
-3. Navigate into the project directory
+4. Install the dependencies required for this project using "npm install" in command line.
 
-   ```bash
-   $ cd openai-quickstart-node
-   ```
+5. Make a file named ".env" that contains one line "OPENAI_SECRET=your_openai_key"
 
-4. Install the requirements
+6. Start the app using "npm run dev" in command line.
 
-   ```bash
-   $ npm install
-   ```
+7. Access the page at http://localhost:3000
 
-5. Make a copy of the example environment variables file
-
-   ```bash
-   $ cp .env.example .env
-   ```
-
-6. Add your [API key](https://beta.openai.com/account/api-keys) to the newly created `.env` file
-
-7. Run the app
-
-   ```bash
-   $ npm run dev
-   ```
-
-You should now be able to access the app at [http://localhost:3000](http://localhost:3000)! For the full context behind this example app, check out the [tutorial](https://beta.openai.com/docs/quickstart)
