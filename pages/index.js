@@ -12,7 +12,7 @@ export default function Home() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ prompttext: userPrompt }),
+      body: JSON.stringify({prompttext: userPrompt, aiEngine: document.getElementById("aiengine_dropdown").value}),
     });
     const data = await response.json();
 
@@ -53,6 +53,12 @@ export default function Home() {
           />
           <input type="submit" value="Submit Prompt" />
         </form>
+
+        <label id="label_for_aiengine">choose the AI engine:</label>
+        <select id="aiengine_dropdown">
+          <option value="text-curie-001">Curie</option>
+          <option value="text-davinci-002">Davinci</option>
+        </select>
         
         <table>
           <tbody id='recordedPromptsAndResponses'>

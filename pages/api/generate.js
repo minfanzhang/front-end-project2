@@ -3,7 +3,7 @@ import { Configuration, OpenAIApi } from "openai";
 const openai = new OpenAIApi(new Configuration({apiKey: process.env.OPENAI_SECRET}));
 
 export default async function (req, res) {
-  const completion = await openai.createCompletion("text-davinci-002", {
+  const completion = await openai.createCompletion(req.body.aiEngine, {
     prompt: req.body.prompttext,
     temperature: 0.5,
     max_tokens: 8,
