@@ -29,3 +29,7 @@ https://front-end-project-openai.herokuapp.com/
 2. Extra feature #1: Users can choose which AI engine they want to use from a select box.
 
 3. Extra feature #2: Some presets are given to the user to help them quickly send a good prompt
+
+## Miscellaneous
+
+It takes several seconds for the app to get the response from OpenAI, so be patient and the app is working correctly, thank you!
