@@ -1,22 +1,22 @@
 import styles from "./index.module.css";
 
-export default function Home() {
+export default function mainFunction() {
 
-  async function onSubmit(event) {
-    event.preventDefault();
+  async function submitPrompt(e) {
+    e.preventDefault();
 
     const userPrompt = document.getElementById("promptField").value;
     
-    const response = await fetch("/api/sendRequestToOpenAI", {
+    const openaiResponse = await fetch("/api/sendRequestToOpenAI", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({prompttext: userPrompt, aiEngine: document.getElementById("aiengine_dropdown").value}),
     });
-    const data = await response.json();
+    const responseText = await openaiResponse.json();
 
-    displayNewResponse(userPrompt, data.result);
+    displayNewResponse(userPrompt, responseText.openaiResult);
     document.getElementById("promptField").value = "";
   }
 
@@ -43,16 +43,16 @@ export default function Home() {
 
       <main className={styles.main}>
 
-        <h3>Chat with AI!</h3>
+        <h2>Chat with AI!</h2>
         <p>Please enter a prompt here:</p>
 
-        <form onSubmit={onSubmit}>
+        <form onSubmit={submitPrompt}>
           <textarea
             type="text"
             id="promptField"
             placeholder="Write a poem about a dog wearing skis"
           />
-          <input type="submit" value="Submit Prompt" />
+          <input type="submit" value="Submit Prompt"/>
         </form>
 
         <label id="label_for_aiengine">choose the AI engine:</label>
