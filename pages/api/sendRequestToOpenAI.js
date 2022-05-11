@@ -1,8 +1,6 @@
 import { Configuration, OpenAIApi } from "openai";
 
-//const openai = new OpenAIApi(new Configuration({apiKey: process.env.OPENAI_SECRET}));
-
-const openai = new OpenAIApi(new Configuration({apiKey: "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"}));
+const openai = new OpenAIApi(new Configuration({apiKey: process.env.OPENAI_SECRET}));
 
 export default async function (req, res) {
   const completionResult = await openai.createCompletion(req.body.aiEngine, {
