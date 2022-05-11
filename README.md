@@ -1,8 +1,14 @@
-# OpenAI API Quickstart - Node.js example app
+# Front End Challenge - Minfan Zhang
 
-This is an example pet name generator app used in the OpenAI API [quickstart tutorial](https://beta.openai.com/docs/quickstart). It uses the [Next.js](https://nextjs.org/) framework with [React](https://reactjs.org/). Check out the tutorial or follow the instructions below to get set up.
+This is an front-end project sending plain text prompts to the OpenAI API and shows the responses received in order of newest to oldest. The project is impleneted mainly using Javascript and React.js.
 
-## Setup
+## Link to the hosted project:
+
+https://front-end-project-openai.herokuapp.com/
+
+## Guide to use the project
+
+1. Download the project
 
 1. If you don’t have Node.js installed, [install it from here](https://nodejs.org/en/)
 
