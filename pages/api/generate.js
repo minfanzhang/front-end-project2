@@ -14,6 +14,3 @@ export default async function (req, res) {
   res.status(200).json({ result: completion.data.choices[0].text });
 }
 
-/*function generatePrompt(animal) {
-  return `write a poem about dinousaurs in the snow`;
-}*/
