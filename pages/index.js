@@ -7,7 +7,7 @@ export default function Home() {
 
     const userPrompt = document.getElementById("promptField").value;
     
-    const response = await fetch("/api/generate", {
+    const response = await fetch("/api/sendRequestToOpenAI", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -16,7 +16,8 @@ export default function Home() {
     });
     const data = await response.json();
 
-    displayNewResponse(userPrompt, data.result)
+    displayNewResponse(userPrompt, data.result);
+    document.getElementById("promptField").value = "";
   }
 
   function displayNewResponse(newPrompt, newResponse) {
