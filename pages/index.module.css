@@ -8,16 +8,23 @@
   border-radius: 12px;
   margin-bottom: 10px;
 }
+
 .main {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.main h3 {
+
+.main h2 {
   color: red;
   font-weight: bolder;
   font-size: 40px;
 }
+
+.main p {
+  font-size: large;
+}
+
 .main form {
   display: flex;
   flex-direction: column;
@@ -42,6 +49,7 @@
   opacity: 0.9;
   color: grey;
 }
+
 .main input[type="submit"] {
   position: relative;
   padding: 8px 0;
@@ -56,10 +64,6 @@
   width: 50%;
   left: 25%;
   top: 6%;
-}
-.main .result {
-  font-weight: bold;
-  margin-top: 40px;
 }
 
 .main table {
